@@ -12,12 +12,12 @@ class student{
     }
     void greeting2();
 };
-void student::greeting2(){
+void student::greeting2(){               //defining a function outside the class
     cout<<" Hello world!";
 }
 int main(){
     student s;
-    s.greeting1();
+    s.greeting1();                   /* the main function can access the private members using public member functions  */
     s.greeting2();
     return 0;
 }
