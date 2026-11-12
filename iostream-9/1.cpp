@@ -6,15 +6,12 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int count;
+    int count =0;
     char c;
     cout<<"INPUT TEXT"<<endl;
+    cin.get(c);
+    cout.put(c);
 
-    cin>>c;   //it will read the data character by character . The reading will be terminated at the encounter of a white space pr a character that doesn't match the destination.
-    cout<<c;
-
-    cin>>count ;
-    cout<<count;
     return 0;
 }
    
