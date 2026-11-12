@@ -9,9 +9,14 @@ int main(){
     int count =0;
     char c;
     cout<<"INPUT TEXT"<<endl;
-    cin.get(c);
+    cin.get(c);    //it will read our text , only first character rest will be made available for the second cin.
+    while(c!= 't'){   //cin fetches a character including blank space tab and new line;
+    
     cout.put(c);
-
+    count ++;
+    cin.get(c);
+    }
+    cout<<"Number of characters ="<<count<<"\n";
     return 0;
 }
    
