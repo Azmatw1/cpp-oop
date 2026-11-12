@@ -12,7 +12,7 @@ int main(){
     cin.get(c);    //it will read our text , only first character rest will be made available for the second cin.
     while(c!= 't'){   //cin fetches a character including blank space tab and new line;
     
-    cout.put(c);
+    cout.put(c);         //output a text line character ny character.
     count ++;
     cin.get(c);
     }
