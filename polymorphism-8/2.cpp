@@ -3,6 +3,9 @@
 //but by making the same nume function virtual, at run time, complier determines which function to use
 //based on 'type of object' pointed to by the BASE pointer, not the type of pointer!. so by making base pointer point to different types of objects we can execute diff versions of VIRTUAL function.
 
+
+/* WE MUST ACCESS VIRTUAL FUNCTIONS through the use of a pointer
+declared as a pointer to the base class , only then run time polymorphism is achieved.*/
 #include<iostream>
 using namespace std;
 class Base{
