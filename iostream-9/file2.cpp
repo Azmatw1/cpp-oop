@@ -9,14 +9,14 @@ int main(){
 
     fout<<"United states of America"<<endl;
     fout<<"United Kingdom"<<endl;
-    fout<<"China"<<endl;
+    fout<<"China";
 
     fout.close();   //disconnect 'country' file from the stream
 
     fout.open("capital");      //connect file named "capital" to the stream object fout.
     fout<<"Washington DC"<<endl;
     fout<<"London"<<endl;
-    fout<<"Beijing"<<endl;
+    fout<<"Beijing";
 
     fout.close();         //disconnect 'capital' from the stream
     //reading the files
