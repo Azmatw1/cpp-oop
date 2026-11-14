@@ -28,7 +28,8 @@ int main(){
     fin.open("country");     //connect "country " to it.
     cout<<"contents of country file"<<endl;
 
-    while(fin)              //check end- of- file ..more on this later!
+    while(fin)              //check end- of- file , fin returns 0 if any error occurs in file operation including the end-of-file condition.
+                            //thus the while loop terminates when fin returns a value of 0 on reachin the end-of-line condition.
     {
         fin.getline(line, N);      //read a line
         cout<< line<<endl;            //display it.
