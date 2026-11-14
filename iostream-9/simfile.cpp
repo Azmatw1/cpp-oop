@@ -12,7 +12,9 @@ int main(){
     fin2.open("capital");
 
     for(int i =1; i<=10; i++){
-        if(fin1.eof() != 0){
+        if(fin1.eof() != 0){                   //eof() is a memeber function of ios class
+                                               // it returns a non-zero value if the End-of-line condition is encountered, and a zero, otherwise
+                                            
             cout<<"Exit from country"<<endl;
             exit(1);
         }
