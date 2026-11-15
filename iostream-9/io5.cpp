@@ -1,4 +1,11 @@
 //reading and writing class objects
+//An int is 4 bytes and prefers to live at a memory address that is a multiple of 4 (like address 0, 4, 8, 12, etc.).
+
+// name array takes up bytes 0 through 9.
+
+//The very next available spot that is a multiple of 4 is 12.
+
+//Therefore, the compiler automatically leaves bytes 10 and 11 empty (padding) so that int code can start neatly at byte 12.
 #include<iostream>
 #include<fstream>
 #include<iomanip>
@@ -28,14 +35,14 @@ void INVENTORY::writedata(void){       //formatted display on screen
 int main(){
     INVENTORY item;
     fstream inoutfile; //input/outputstream
-    inoutfile.open("STOCK.DAT", ios::ate|ios::in|ios::out|ios::binary|ios::trunc);
+    inoutfile.open("STOCK.DAT", ios::ate|ios::in|ios::out|ios::binary);
     inoutfile.seekg(0, ios::beg);        //go to start
     cout<<"CURRENT CONTENTS OF STOCK"<<"\n";
     while(inoutfile.read((char*) & item, sizeof(item)))
     {
         item.writedata();
     }
-    inoutfile.close();           
+            inoutfile.clear(); //turn of EOF flag?? 
 
     //ADD ONE MORE ITEM
     cout<<"\n Add An Item\n";
@@ -43,9 +50,11 @@ int main(){
     char ch;
     cin.get(ch);
     inoutfile.write((char*)&item, sizeof(item));
+    inoutfile.flush();       //ensure the data is written to the file
 
     //Display the appended file
-    inoutfile.seekg(0);
+    inoutfile.clear();            //clear any eof flags from the previous operations
+    inoutfile.seekg(0, ios::beg);
     cout<<"CONTENTS OF ADDED FILE\n";
     while(inoutfile.read((char*) & item , sizeof(item)))
     {
@@ -54,10 +63,13 @@ int main(){
 
 
 //find the number of objects in the file
+inoutfile.clear();
+
 int last = inoutfile.tellg();
 int n = last/sizeof(item);
 cout<<"Number of objects: "<<n<<endl;
 cout<<"File size: "<<last<<endl;
+cout<<sizeof(item)<<endl;
 
 //modify details of an item
 cout<<"Enter object number to be updated: ";
@@ -76,9 +88,10 @@ cin.get(ch);
 inoutfile.write((char*)&item, sizeof(item))<<flush;
 
 //show updated file
-inoutfile.seekg(0);
+inoutfile.clear();
+inoutfile.seekg(0, ios::beg);
 cout<<"Updated file: "<<endl;
-while(inoutfile.read((char*) & item, sizeof (item)));
+while(inoutfile.read((char*) & item, sizeof (item)))
 {
     item.writedata();
 }
