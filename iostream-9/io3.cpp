@@ -30,7 +30,7 @@ int main(){
 
     fstream file;              //input output both
 
-    file.open("STOCK.DAT", ios::in|ios::out);
+    file.open("STOCK.DAT", ios::in|ios::out|ios::trunc);
     cout<<"ENTER DETAILS FOR THREE ITEMS\n";
     for(int i=0; i<3; i++){
         item[i].readdata();
